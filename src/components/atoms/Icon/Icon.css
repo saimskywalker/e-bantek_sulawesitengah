@@ -1,0 +1,133 @@
+/* Icon Atomic Component Styles */
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Size variants */
+.icon--small {
+  width: 16px;
+  height: 16px;
+}
+
+.icon--medium {
+  width: 20px;
+  height: 20px;
+}
+
+.icon--large {
+  width: 24px;
+  height: 24px;
+}
+
+.icon--xl {
+  width: 32px;
+  height: 32px;
+}
+
+/* Color variants */
+.icon--color-default {
+  color: var(--text-secondary);
+}
+
+.icon--color-primary {
+  color: var(--color-primary-600);
+}
+
+.icon--color-secondary {
+  color: var(--text-secondary);
+}
+
+.icon--color-tertiary {
+  color: var(--text-tertiary);
+}
+
+.icon--color-inverse {
+  color: var(--text-inverse);
+}
+
+.icon--color-success {
+  color: var(--color-success-600);
+}
+
+.icon--color-warning {
+  color: var(--color-warning-600);
+}
+
+.icon--color-error {
+  color: var(--color-error-600);
+}
+
+.icon--color-info {
+  color: var(--color-info-600);
+}
+
+/* Interactive states (for clickable icons) */
+.icon--interactive {
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.icon--interactive:hover {
+  color: var(--color-primary-700);
+}
+
+/* Icon button styles (when used in buttons) */
+.btn .icon {
+  pointer-events: none;
+}
+
+/* Special utility classes */
+.icon--spin {
+  animation: iconSpin 1s linear infinite;
+}
+
+.icon--pulse {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .icon--color-default {
+    color: var(--text-primary);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .icon--color-secondary,
+  .icon--color-tertiary {
+    color: var(--text-primary);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .icon--spin {
+    animation: none;
+  }
+  
+  .icon--pulse {
+    animation: none;
+  }
+}

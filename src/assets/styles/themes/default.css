@@ -1,0 +1,244 @@
+/* e-Bantek Default Theme */
+
+/* This file contains theme-specific overrides and customizations */
+
+:root {
+  /* ===== THEME-SPECIFIC VARIABLES ===== */
+  
+  /* Brand Colors (can be customized for different themes) */
+  --theme-primary: var(--color-primary-600);
+  --theme-primary-hover: var(--color-primary-700);
+  --theme-primary-light: var(--color-primary-50);
+  
+  --theme-secondary: var(--color-secondary-600);
+  --theme-secondary-hover: var(--color-secondary-700);
+  --theme-secondary-light: var(--color-secondary-50);
+  
+  /* Navigation Theme */
+  --nav-bg: var(--color-neutral-0);
+  --nav-border: var(--color-neutral-200);
+  --nav-text: var(--color-neutral-700);
+  --nav-text-active: var(--color-primary-600);
+  --nav-hover: var(--color-neutral-50);
+  
+  /* Sidebar Theme */
+  --sidebar-bg: var(--color-neutral-50);
+  --sidebar-border: var(--color-neutral-200);
+  --sidebar-text: var(--color-neutral-700);
+  --sidebar-text-active: var(--color-primary-600);
+  --sidebar-hover: var(--color-neutral-100);
+  
+  /* Card Theme */
+  --card-bg: var(--color-neutral-0);
+  --card-border: var(--color-neutral-200);
+  --card-shadow: var(--shadow-base);
+  --card-hover-shadow: var(--shadow-md);
+  
+  /* Form Theme */
+  --form-bg: var(--color-neutral-0);
+  --form-border: var(--color-neutral-300);
+  --form-border-focus: var(--color-primary-500);
+  --form-text: var(--color-neutral-900);
+  --form-placeholder: var(--color-neutral-500);
+  
+  /* Button Theme */
+  --btn-primary-bg: var(--color-primary-600);
+  --btn-primary-bg-hover: var(--color-primary-700);
+  --btn-primary-text: var(--color-neutral-0);
+  
+  --btn-secondary-bg: var(--color-neutral-0);
+  --btn-secondary-bg-hover: var(--color-neutral-50);
+  --btn-secondary-text: var(--color-neutral-700);
+  --btn-secondary-border: var(--color-neutral-300);
+  
+  --btn-success-bg: var(--color-success-600);
+  --btn-success-bg-hover: var(--color-success-700);
+  --btn-success-text: var(--color-neutral-0);
+  
+  --btn-warning-bg: var(--color-warning-600);
+  --btn-warning-bg-hover: var(--color-warning-700);
+  --btn-warning-text: var(--color-neutral-0);
+  
+  --btn-error-bg: var(--color-error-600);
+  --btn-error-bg-hover: var(--color-error-700);
+  --btn-error-text: var(--color-neutral-0);
+  
+  /* Status Colors Theme */
+  --status-success-bg: var(--color-success-50);
+  --status-success-border: var(--color-success-200);
+  --status-success-text: var(--color-success-800);
+  
+  --status-warning-bg: var(--color-warning-50);
+  --status-warning-border: var(--color-warning-200);
+  --status-warning-text: var(--color-warning-800);
+  
+  --status-error-bg: var(--color-error-50);
+  --status-error-border: var(--color-error-200);
+  --status-error-text: var(--color-error-800);
+  
+  --status-info-bg: var(--color-info-50);
+  --status-info-border: var(--color-info-200);
+  --status-info-text: var(--color-info-800);
+  
+  /* Service Module Themes (for different service categories) */
+  --service-assessment-primary: var(--color-primary-600);
+  --service-assessment-light: var(--color-primary-50);
+  
+  --service-financing-primary: var(--color-secondary-600);
+  --service-financing-light: var(--color-secondary-50);
+  
+  --service-technical-primary: var(--color-success-600);
+  --service-technical-light: var(--color-success-50);
+  
+  --service-research-primary: var(--color-warning-600);
+  --service-research-light: var(--color-warning-50);
+  
+  --service-management-primary: var(--color-error-600);
+  --service-management-light: var(--color-error-50);
+}
+
+/* ===== COMPONENT THEME STYLES ===== */
+
+/* Navigation Theme */
+.nav-theme {
+  background-color: var(--nav-bg);
+  border-color: var(--nav-border);
+  color: var(--nav-text);
+}
+
+.nav-theme .nav-link {
+  color: var(--nav-text);
+  transition: var(--transition-colors);
+}
+
+.nav-theme .nav-link:hover {
+  background-color: var(--nav-hover);
+}
+
+.nav-theme .nav-link.active {
+  color: var(--nav-text-active);
+  background-color: var(--theme-primary-light);
+}
+
+/* Sidebar Theme */
+.sidebar-theme {
+  background-color: var(--sidebar-bg);
+  border-color: var(--sidebar-border);
+}
+
+.sidebar-theme .sidebar-link {
+  color: var(--sidebar-text);
+  transition: var(--transition-colors);
+}
+
+.sidebar-theme .sidebar-link:hover {
+  background-color: var(--sidebar-hover);
+}
+
+.sidebar-theme .sidebar-link.active {
+  color: var(--sidebar-text-active);
+  background-color: var(--theme-primary-light);
+}
+
+/* Card Theme */
+.card-theme {
+  background-color: var(--card-bg);
+  border: var(--border-1) solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-shadow);
+}
+
+.card-theme:hover {
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Service Module Themes */
+.service-assessment {
+  --service-color: var(--service-assessment-primary);
+  --service-bg: var(--service-assessment-light);
+}
+
+.service-financing {
+  --service-color: var(--service-financing-primary);
+  --service-bg: var(--service-financing-light);
+}
+
+.service-technical {
+  --service-color: var(--service-technical-primary);
+  --service-bg: var(--service-technical-light);
+}
+
+.service-research {
+  --service-color: var(--service-research-primary);
+  --service-bg: var(--service-research-light);
+}
+
+.service-management {
+  --service-color: var(--service-management-primary);
+  --service-bg: var(--service-management-light);
+}
+
+/* Service Badge Theme */
+.service-badge {
+  background-color: var(--service-bg);
+  color: var(--service-color);
+  border: 1px solid var(--service-color);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+/* ===== RESPONSIVE THEME ADJUSTMENTS ===== */
+
+/* Mobile Theme Adjustments */
+@media (max-width: 639px) {
+  :root {
+    --sidebar-width: 100%;
+    --container-padding: var(--space-3);
+  }
+}
+
+/* Tablet Theme Adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root {
+    --sidebar-width: 14rem;
+  }
+}
+
+/* Desktop Theme Adjustments */
+@media (min-width: 1024px) {
+  :root {
+    --sidebar-width: 16rem;
+    --container-padding: var(--space-8);
+  }
+}
+
+/* ===== DARK MODE THEME (for future implementation) ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Navigation Dark Theme */
+    --nav-bg: var(--color-neutral-800);
+    --nav-border: var(--color-neutral-700);
+    --nav-text: var(--color-neutral-200);
+    --nav-text-active: var(--color-primary-400);
+    --nav-hover: var(--color-neutral-700);
+    
+    /* Sidebar Dark Theme */
+    --sidebar-bg: var(--color-neutral-900);
+    --sidebar-border: var(--color-neutral-700);
+    --sidebar-text: var(--color-neutral-200);
+    --sidebar-text-active: var(--color-primary-400);
+    --sidebar-hover: var(--color-neutral-800);
+    
+    /* Card Dark Theme */
+    --card-bg: var(--color-neutral-800);
+    --card-border: var(--color-neutral-700);
+    
+    /* Form Dark Theme */
+    --form-bg: var(--color-neutral-800);
+    --form-border: var(--color-neutral-600);
+    --form-text: var(--color-neutral-100);
+    --form-placeholder: var(--color-neutral-400);
+  }
+}

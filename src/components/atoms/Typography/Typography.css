@@ -1,0 +1,254 @@
+/* Typography Atomic Component Styles */
+
+.typography {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+/* Variant styles */
+.typography--h1 {
+  font-size: var(--text-6xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-bold);
+}
+
+.typography--h2 {
+  font-size: var(--text-5xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-bold);
+}
+
+.typography--h3 {
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-bold);
+}
+
+.typography--h4 {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-semibold);
+}
+
+.typography--h5 {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-semibold);
+}
+
+.typography--h6 {
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-semibold);
+}
+
+.typography--subtitle1 {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-medium);
+}
+
+.typography--subtitle2 {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-medium);
+}
+
+.typography--body1 {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  font-weight: var(--font-regular);
+}
+
+.typography--body2 {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  font-weight: var(--font-regular);
+}
+
+.typography--caption {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-regular);
+}
+
+.typography--overline {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Color variants */
+.typography--color-default {
+  color: var(--text-primary);
+}
+
+.typography--color-primary {
+  color: var(--color-primary-600);
+}
+
+.typography--color-secondary {
+  color: var(--text-secondary);
+}
+
+.typography--color-tertiary {
+  color: var(--text-tertiary);
+}
+
+.typography--color-inverse {
+  color: var(--text-inverse);
+}
+
+.typography--color-success {
+  color: var(--color-success-600);
+}
+
+.typography--color-warning {
+  color: var(--color-warning-600);
+}
+
+.typography--color-error {
+  color: var(--color-error-600);
+}
+
+.typography--color-info {
+  color: var(--color-info-600);
+}
+
+/* Alignment */
+.typography--align-left {
+  text-align: left;
+}
+
+.typography--align-center {
+  text-align: center;
+}
+
+.typography--align-right {
+  text-align: right;
+}
+
+.typography--align-justify {
+  text-align: justify;
+}
+
+/* Weight overrides */
+.typography--weight-light {
+  font-weight: var(--font-light);
+}
+
+.typography--weight-regular {
+  font-weight: var(--font-regular);
+}
+
+.typography--weight-medium {
+  font-weight: var(--font-medium);
+}
+
+.typography--weight-semibold {
+  font-weight: var(--font-semibold);
+}
+
+.typography--weight-bold {
+  font-weight: var(--font-bold);
+}
+
+/* Responsive typography */
+@media (max-width: 639px) {
+  .typography--h1 {
+    font-size: var(--text-5xl);
+  }
+  
+  .typography--h2 {
+    font-size: var(--text-4xl);
+  }
+  
+  .typography--h3 {
+    font-size: var(--text-3xl);
+  }
+  
+  .typography--h4 {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* Utility classes for common patterns */
+.typography--no-margin {
+  margin: 0;
+}
+
+.typography--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.typography--line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.typography--line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Link styles when used as link */
+.typography--link {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: var(--transition-colors);
+}
+
+.typography--link:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+/* Monospace variant */
+.typography--mono {
+  font-family: var(--font-mono);
+}
+
+/* Selection styling */
+.typography::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+/* Print styles */
+@media print {
+  .typography {
+    color: black !important;
+  }
+  
+  .typography--color-primary,
+  .typography--color-success,
+  .typography--color-warning,
+  .typography--color-error,
+  .typography--color-info {
+    color: black !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .typography--color-secondary,
+  .typography--color-tertiary {
+    color: var(--text-primary);
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .typography::selection {
+    background-color: var(--color-primary-800);
+    color: var(--color-primary-100);
+  }
+}

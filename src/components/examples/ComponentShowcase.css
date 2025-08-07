@@ -1,0 +1,134 @@
+/* Component Showcase Styles */
+
+.component-showcase {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.showcase-section {
+  width: 100%;
+}
+
+/* Typography Examples */
+.typography-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Button Examples */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Input Examples */
+.input-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+/* Form Examples */
+.form-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-6);
+}
+
+/* Icon Examples */
+.icon-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.icon-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.icon-row {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Loading Examples */
+.loading-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.loading-row {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.loading-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 120px;
+}
+
+/* Card Examples */
+.card-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+/* Responsive design */
+@media (max-width: 639px) {
+  .component-showcase {
+    padding: var(--space-6) var(--space-3);
+  }
+  
+  .button-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-examples {
+    grid-template-columns: 1fr;
+  }
+  
+  .loading-row {
+    justify-content: center;
+  }
+  
+  .card-examples {
+    grid-template-columns: 1fr;
+  }
+}

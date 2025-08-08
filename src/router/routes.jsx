@@ -3,7 +3,6 @@ import AppLayout from '../components/templates/AppLayout';
 
 // Import page components
 import Landing from '../pages/Landing';
-import Dashboard from '../pages/Dashboard';
 import NotFound from '../pages/NotFound';
 
 // Import placeholder components
@@ -25,11 +24,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Dashboard />
-      },
-      {
-        path: 'dashboard',
-        element: <Dashboard />
+        element: (
+          <FeaturePlaceholder 
+            featureName="Coming Soon" 
+            description="Dashboard sedang dalam pengembangan. Fitur akan segera tersedia dengan sistem autentikasi yang lengkap."
+          />
+        )
       },
       
       // Core Service Routes

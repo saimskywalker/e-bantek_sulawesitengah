@@ -1,8 +1,6 @@
 # Task Management
 
 ## Active Tasks
-- [ ] #T-002 [FEATURE] [HIGH] Update router to handle dashboard removal and redirect /app/* routes | Created: 2025-01-08
-- [ ] #T-003 [FEATURE] [MEDIUM] Add mobile app coming soon section to future features | Created: 2025-01-08
 - [ ] #T-004 [TASK] [MEDIUM] Add PlayStore and AppStore badges to mobile section | Created: 2025-01-08
 - [ ] #T-006 [TASK] [LOW] Update navigation links after dashboard removal | Created: 2025-01-08
 - [ ] #T-007 [TASK] [LOW] Clean up any dashboard references in components | Created: 2025-01-08
@@ -10,6 +8,8 @@
 ## Completed Tasks
 
 - [x] #T-001 [FEATURE] [HIGH] Remove Dashboard page and route completely | Created: 2025-01-08 | Completed: 2025-01-08
+- [x] #T-002 [FEATURE] [HIGH] Update router to handle dashboard removal and redirect /app/* routes | Created: 2025-01-08 | Completed: 2025-08-08
+- [x] #T-003 [FEATURE] [MEDIUM] Add mobile app coming soon section to future features | Created: 2025-01-08 | Completed: 2025-08-08
 - [x] #T-005 [BUG] [HIGH] Fix broken FontAwesome icons throughout landing page | Created: 2025-01-08 | Completed: 2025-01-08
 
 ---
@@ -123,9 +123,9 @@
 
 **Session**: Mobile App Coming Soon Feature & Dashboard Removal
 **Total Tasks**: 7
-**Completed**: 0/7 (0%)
-**High Priority**: 3 tasks
-**Medium Priority**: 2 tasks  
+**Completed**: 4/7 (57%)
+**High Priority**: 0 tasks remaining
+**Medium Priority**: 1 task  
 **Low Priority**: 2 tasks
 
 **Recommended Work Order**:

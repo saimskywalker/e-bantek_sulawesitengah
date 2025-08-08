@@ -427,6 +427,27 @@ const Landing = () => {
           </div>
 
           <div className="future-grid">
+            <div className="future-card mobile-app-card">
+              <div className="future-icon mobile-icon"><i className="fas fa-mobile-alt"></i></div>
+              <h3 className="future-title">Mobile App E-Bantek</h3>
+              <p className="future-description">Aplikasi mobile native untuk akses layanan bantuan teknis di mana saja</p>
+              <div className="mobile-features">
+                <div className="mobile-feature">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Notifikasi real-time</span>
+                </div>
+                <div className="mobile-feature">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Monitoring proyek offline</span>
+                </div>
+                <div className="mobile-feature">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Scan QR untuk tracking</span>
+                </div>
+              </div>
+              <span className="future-badge coming-soon">Coming Soon</span>
+            </div>
+
             <div className="future-card">
               <div className="future-icon"><i className="fas fa-map-marked-alt"></i></div>
               <h3 className="future-title">GIS Mapping</h3>

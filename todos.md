@@ -4,13 +4,13 @@
 - [ ] #T-002 [FEATURE] [HIGH] Update router to handle dashboard removal and redirect /app/* routes | Created: 2025-01-08
 - [ ] #T-003 [FEATURE] [MEDIUM] Add mobile app coming soon section to future features | Created: 2025-01-08
 - [ ] #T-004 [TASK] [MEDIUM] Add PlayStore and AppStore badges to mobile section | Created: 2025-01-08
-- [ ] #T-005 [BUG] [HIGH] Fix broken FontAwesome icons throughout landing page | Created: 2025-01-08
 - [ ] #T-006 [TASK] [LOW] Update navigation links after dashboard removal | Created: 2025-01-08
 - [ ] #T-007 [TASK] [LOW] Clean up any dashboard references in components | Created: 2025-01-08
 
 ## Completed Tasks
 
 - [x] #T-001 [FEATURE] [HIGH] Remove Dashboard page and route completely | Created: 2025-01-08 | Completed: 2025-01-08
+- [x] #T-005 [BUG] [HIGH] Fix broken FontAwesome icons throughout landing page | Created: 2025-01-08 | Completed: 2025-01-08
 
 ---
 

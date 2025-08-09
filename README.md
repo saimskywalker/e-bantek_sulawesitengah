@@ -428,33 +428,11 @@ refactor(architecture): improve code organization
 - **RTL Support** for Arabic and Hebrew languages
 - **Cultural Adaptation** for local conventions
 
-## 📞 Professional Support
+## 📄 Project Info
 
-### Government Partnership
-**Dinas Cipta Karya dan Sumber Daya Air**  
-Provinsi Sulawesi Tengah, Indonesia
-
-**Official Address**: Jl. Prof. Dr. Moh. Yamin No. 33, Palu, Central Sulawesi  
-**Contact**: (0451) 4015509  
-**Email**: cikasda@sultengprov.go.id  
-
-### Technical Resources
-- **Developer Portal**: [E-Bantek Developer Hub](https://developers.e-bantek.id)
-- **API Documentation**: [Interactive API Reference](https://api.e-bantek.id/docs)
-- **Community Support**: [Developer Community](https://community.e-bantek.id)
-
-## 📄 Legal & Compliance
-
-**License**: MIT License - Open source with commercial flexibility  
-**Author**: saimskywalker  
-**Copyright**: © 2025 E-Bantek Digital Platform
-
-## 🏆 Industry Certifications
-
-- **ISO 9001:2015** - Quality Management Excellence
-- **ISO/IEC 27001** - Information Security Management
-- **SOC 2 Type II** - Security & Availability Compliance
-- **GDPR Compliant** - European Data Protection Standards
+**Developer**: saimskywalker  
+**Status**: Learning project  
+**Year**: 2025
 
 ## 🔮 Technology Roadmap
 

@@ -445,6 +445,16 @@ const Landing = () => {
                   <span>Scan QR untuk tracking</span>
                 </div>
               </div>
+              <div className="app-store-badges">
+                <a href="#" className="store-badge google-play">
+                  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
+                  <div className="coming-soon-overlay">Coming Soon</div>
+                </a>
+                <a href="#" className="store-badge app-store">
+                  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
+                  <div className="coming-soon-overlay">Coming Soon</div>
+                </a>
+              </div>
               <span className="future-badge coming-soon">Coming Soon</span>
             </div>
 

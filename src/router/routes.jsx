@@ -1,8 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AppLayout from '../components/templates/AppLayout';
+import ProtectedRoute from '../components/ProtectedRoute';
+import RootRedirect from '../components/RootRedirect';
 
 // Import page components
 import Landing from '../pages/Landing';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import ForgotPassword from '../pages/ForgotPassword';
+import EmailVerification from '../pages/EmailVerification';
+import Dashboard from '../pages/Dashboard';
 import NotFound from '../pages/NotFound';
 
 // Import placeholder components
@@ -14,12 +21,45 @@ import ComponentShowcase from '../components/examples/ComponentShowcase';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Landing />,
+    element: <RootRedirect />,
+    errorElement: <NotFound />
+  },
+  {
+    path: '/login',
+    element: <Login />,
+    errorElement: <NotFound />
+  },
+  {
+    path: '/register',
+    element: <Register />,
+    errorElement: <NotFound />
+  },
+  {
+    path: '/forgot-password',
+    element: <ForgotPassword />,
+    errorElement: <NotFound />
+  },
+  {
+    path: '/email-verification',
+    element: <EmailVerification />,
+    errorElement: <NotFound />
+  },
+  {
+    path: '/dashboard',
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
     errorElement: <NotFound />
   },
   {
     path: '/app',
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     errorElement: <NotFound />,
     children: [
       {

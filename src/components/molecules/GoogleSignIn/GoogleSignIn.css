@@ -1,0 +1,184 @@
+/* Google Sign-In Component Styles */
+
+.google-signin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.google-signin-button {
+  position: relative;
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border: var(--border-2) solid var(--border-secondary) !important;
+  transition: var(--transition-all);
+}
+
+.google-signin-button:hover:not(:disabled) {
+  background: var(--color-neutral-50) !important;
+  border-color: var(--color-primary-600) !important;
+  color: var(--color-primary-600) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.google-signin-button:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-color: var(--color-primary-600) !important;
+}
+
+.google-signin-button:active {
+  transform: translateY(0);
+}
+
+/* Google brand colors for the icon */
+.google-signin-button .btn__icon--left .fa-google {
+  background: linear-gradient(45deg, #ea4335, #fbbc05, #34a853, #4285f4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Simulation states */
+.google-signin--redirect {
+  background: var(--color-info-100) !important;
+  color: var(--color-info-700) !important;
+  border-color: var(--color-info-600) !important;
+}
+
+.google-signin--processing {
+  background: var(--color-warning-100) !important;
+  color: var(--color-warning-700) !important;
+  border-color: var(--color-warning-600) !important;
+}
+
+.google-signin--success {
+  background: var(--color-success-100) !important;
+  color: var(--color-success-700) !important;
+  border-color: var(--color-success-600) !important;
+}
+
+/* Simulation notice */
+.google-signin-simulation {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-info-50);
+  border: var(--border-1) solid var(--color-info-200);
+  border-radius: var(--radius-base);
+  margin-top: var(--space-2);
+}
+
+.simulation-notice {
+  color: var(--color-info-700);
+  font-size: var(--text-xs);
+  line-height: var(--leading-relaxed);
+  text-align: center;
+}
+
+/* Loading animation for spinner */
+.google-signin-button .fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled state */
+.google-signin-button:disabled {
+  background: var(--color-neutral-100) !important;
+  color: var(--text-tertiary) !important;
+  border-color: var(--border-primary) !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.google-signin-button:disabled .fa-google {
+  background: none;
+  -webkit-text-fill-color: var(--text-tertiary);
+  color: var(--text-tertiary);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .google-signin-button {
+    border-width: var(--border-2) !important;
+  }
+  
+  .google-signin-button .fa-google {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: currentColor;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .google-signin-button,
+  .fa-spinner {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .google-signin-button:hover {
+    transform: none !important;
+  }
+}
+
+/* Focus visible */
+.google-signin-button:focus-visible {
+  outline: 3px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .google-signin-button {
+    background: var(--color-neutral-800) !important;
+    color: var(--color-neutral-200) !important;
+    border-color: var(--color-neutral-600) !important;
+  }
+  
+  .google-signin-button:hover:not(:disabled) {
+    background: var(--color-neutral-700) !important;
+    border-color: var(--color-primary-400) !important;
+    color: var(--color-primary-400) !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .google-signin-button {
+    font-size: var(--text-base);
+    padding: var(--space-4) var(--space-6);
+  }
+  
+  .simulation-notice {
+    font-size: var(--text-xs);
+    padding: var(--space-2);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .google-signin-button:hover {
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-secondary) !important;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .google-signin-button:active {
+    background: var(--color-neutral-50) !important;
+    border-color: var(--color-primary-600) !important;
+    color: var(--color-primary-600) !important;
+  }
+}

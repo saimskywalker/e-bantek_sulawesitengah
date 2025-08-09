@@ -26,7 +26,7 @@ const Landing = () => {
                 <a href="#future-features" className="navbar-link">Teknologi</a>
               </li>
               <li className="navbar-item">
-                <Link to="/app" className="navbar-link navbar-cta">
+                <Link to="/login" className="navbar-link navbar-cta">
                   Login
                 </Link>
               </li>

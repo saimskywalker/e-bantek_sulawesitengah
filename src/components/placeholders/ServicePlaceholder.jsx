@@ -9,7 +9,7 @@ const ServicePlaceholder = ({ serviceName }) => (
         <div className="p-6">
           <h3 className="font-semibold mb-4">Fitur yang akan tersedia:</h3>
           <ul className="text-left text-secondary space-y-2">
-            <li>• Dashboard analitik</li>
+            <li>• Analytics terintegrasi</li>
             <li>• Form input data</li>
             <li>• Laporan otomatis</li>
             <li>• Integrasi dengan sistem lain</li>

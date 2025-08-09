@@ -142,19 +142,6 @@ const Sidebar = ({ isCollapsed, onToggleCollapse }) => {
         <div className="nav-section">
           {!isCollapsed && <h3 className="section-title">Quick Access</h3>}
           
-          <Link 
-            to="/dashboard" 
-            className={`sidebar-link ${isActiveRoute('/dashboard') ? 'active' : ''}`}
-            title="Dashboard"
-          >
-            <span className="link-icon">📊</span>
-            {!isCollapsed && (
-              <div className="link-content">
-                <span className="link-title">Dashboard</span>
-                <span className="link-description">Ringkasan & Analytics</span>
-              </div>
-            )}
-          </Link>
         </div>
 
         {/* Core Services */}

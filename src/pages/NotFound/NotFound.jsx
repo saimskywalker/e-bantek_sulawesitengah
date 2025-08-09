@@ -38,9 +38,9 @@ const NotFound = () => {
               <span>🏠</span>
               Kembali ke Beranda
             </Link>
-            <Link to="/app/dashboard" className="btn btn-secondary">
-              <span>📊</span>
-              Ke Dashboard
+            <Link to="/app" className="btn btn-secondary">
+              <span>🚀</span>
+              Ke Platform
             </Link>
           </div>
           

@@ -32,9 +32,9 @@ const Landing = () => {
                 <a href="#future-features" className="navbar-link">Teknologi</a>
               </li>
               <li className="navbar-item">
-                <Link to="/app/login" className="navbar-link navbar-cta">
-                  <i className="fas fa-sign-in-alt"></i>
-                  Login
+                <Link to="/app" className="navbar-link navbar-cta">
+                  <i className="fas fa-rocket"></i>
+                  Mulai Sekarang
                 </Link>
               </li>
             </ul>
@@ -64,8 +64,8 @@ const Landing = () => {
                 berkualitas di seluruh wilayah Sulawesi Tengah.
               </p>
               <div className="hero-actions">
-                <Link to="/app/login" className="btn btn-primary">
-                  Ready to Login
+                <Link to="/app" className="btn btn-primary">
+                  Mulai Menggunakan Platform
                 </Link>
                 <Link to="#features" className="btn btn-secondary">
                   Pelajari Lebih Lanjut
@@ -401,9 +401,9 @@ const Landing = () => {
                 <h4 className="cta-title-about">Bergabung dengan Era Konstruksi Digital</h4>
                 <p className="cta-desc-about">Rasakan pengalaman bantuan teknis dengan teknologi terdepan</p>
                 <div className="cta-buttons-about">
-                  <Link to="/app/login" className="btn btn-primary btn-futuristic">
-                    <i className="fas fa-sign-in-alt"></i>
-                    <span>Ready to Login</span>
+                  <Link to="/app" className="btn btn-primary btn-futuristic">
+                    <i className="fas fa-rocket"></i>
+                    <span>Akses Platform</span>
                   </Link>
                   <Link to="#future-features" className="btn btn-secondary btn-construction">
                     <i className="fas fa-microscope"></i>
@@ -498,8 +498,8 @@ const Landing = () => {
               Bergabunglah dengan ribuan pengguna yang telah merasakan efisiensi platform e-Bantek
             </p>
             <div className="cta-actions">
-              <Link to="/app/login" className="btn btn-primary btn-lg">
-                Ready to Login
+              <Link to="/app" className="btn btn-primary btn-lg">
+                Akses Platform E-Bantek
               </Link>
             </div>
           </div>
@@ -560,7 +560,7 @@ const Landing = () => {
                   <li><Link to="#about">Tentang E-Bantek</Link></li>
                   <li><Link to="#future-features">Fitur Platform</Link></li>
                   <li><Link to="/app/help">Bantuan</Link></li>
-                  <li><Link to="/app/login">Login</Link></li>
+                  <li><Link to="/app">Platform</Link></li>
                 </ul>
               </div>
 
@@ -631,9 +631,9 @@ const Landing = () => {
               </div>
 
               <div className="footer-login-cta">
-                <Link to="/app/login" className="footer-cta-button">
-                  <i className="fas fa-sign-in-alt"></i>
-                  <span>Ready to Login</span>
+                <Link to="/app" className="footer-cta-button">
+                  <i className="fas fa-rocket"></i>
+                  <span>Akses Platform</span>
                 </Link>
               </div>
             </div>

@@ -40,14 +40,6 @@ const Header = () => {
                 Beranda
               </Link>
             </li>
-            <li className="nav-item">
-              <Link 
-                to="/dashboard" 
-                className={`nav-link ${isActiveRoute('/dashboard') ? 'active' : ''}`}
-              >
-                Dashboard
-              </Link>
-            </li>
             <li className="nav-item dropdown">
               <button className="nav-link dropdown-toggle">
                 Layanan
@@ -148,9 +140,6 @@ const Header = () => {
           <nav className="mobile-nav-content">
             <Link to="/" className="mobile-nav-link" onClick={toggleMobileMenu}>
               Beranda
-            </Link>
-            <Link to="/dashboard" className="mobile-nav-link" onClick={toggleMobileMenu}>
-              Dashboard
             </Link>
             <div className="mobile-nav-section">
               <h4 className="mobile-nav-title">Layanan</h4>

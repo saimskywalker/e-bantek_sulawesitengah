@@ -9,13 +9,7 @@ const Landing = () => {
         <div className="container">
           <div className="navbar-content">
             <div className="navbar-brand">
-              <div className="brand-logo">
-                <i className="fas fa-hard-hat"></i>
-                <span className="brand-text">
-                  <span className="brand-main">E-Bantek</span>
-                  <span className="brand-sub">Digital Construction</span>
-                </span>
-              </div>
+              <span className="brand-name-stylish">E-Bantek</span>
             </div>
             
             <ul className="navbar-menu">
@@ -33,8 +27,7 @@ const Landing = () => {
               </li>
               <li className="navbar-item">
                 <Link to="/app" className="navbar-link navbar-cta">
-                  <i className="fas fa-rocket"></i>
-                  Mulai Sekarang
+                  Login
                 </Link>
               </li>
             </ul>
@@ -630,12 +623,6 @@ const Landing = () => {
                 </div>
               </div>
 
-              <div className="footer-login-cta">
-                <Link to="/app" className="footer-cta-button">
-                  <i className="fas fa-rocket"></i>
-                  <span>Akses Platform</span>
-                </Link>
-              </div>
             </div>
           </div>
         </div>

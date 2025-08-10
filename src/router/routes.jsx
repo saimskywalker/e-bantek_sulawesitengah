@@ -14,6 +14,9 @@ import Dashboard from '../pages/Dashboard';
 import PemohonDashboard from '../pages/Dashboard/PemohonDashboard';
 import NotFound from '../pages/NotFound';
 
+// Import service components
+import PerhitunganNilaiSisa from '../pages/Services/PerhitunganNilaiSisa/PerhitunganNilaiSisa';
+
 // Import placeholder components
 import ServicePlaceholder from '../components/placeholders/ServicePlaceholder';
 import FeaturePlaceholder from '../components/placeholders/FeaturePlaceholder';
@@ -60,6 +63,15 @@ const router = createBrowserRouter([
     element: (
       <RoleBasedRoute allowedRoles={[USER_ROLES.PEMOHON]}>
         <PemohonDashboard />
+      </RoleBasedRoute>
+    ),
+    errorElement: <NotFound />
+  },
+  {
+    path: '/services/perhitungan-nilai-sisa',
+    element: (
+      <RoleBasedRoute allowedRoles={[USER_ROLES.PEMOHON]}>
+        <PerhitunganNilaiSisa />
       </RoleBasedRoute>
     ),
     errorElement: <NotFound />

@@ -3,6 +3,13 @@
 .landing-page {
   min-height: 100vh;
   background-color: var(--bg-primary);
+  width: 100%;
+}
+
+/* Override container max-width for landing page to use full width */
+.landing-page .container {
+  max-width: none;
+  width: 100%;
 }
 
 /* Navigation Bar */

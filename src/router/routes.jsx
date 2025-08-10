@@ -4,6 +4,7 @@ import { ProtectedRoute, RoleBasedRoute } from '../components/ProtectedRoute';
 import RootRedirect from '../components/RootRedirect';
 import { USER_ROLES } from '../context/AuthContext';
 
+
 // Import page components
 import Landing from '../pages/Landing';
 import Login from '../pages/Login';

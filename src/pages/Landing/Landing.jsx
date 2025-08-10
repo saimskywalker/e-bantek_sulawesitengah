@@ -309,7 +309,7 @@ const Landing = () => {
                     
                     <div className="about-image-card secondary-image">
                       <img 
-                        src="https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
                         alt="Digital Blueprint Technology"
                         className="about-img"
                         loading="lazy"

@@ -140,14 +140,27 @@ img {
   padding: 0 var(--container-padding);
 }
 
+/* Full width container for hero and feature sections */
+.container-full {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
 @media (min-width: 640px) {
   .container {
+    padding: 0 var(--container-padding-sm);
+  }
+  .container-full {
     padding: 0 var(--container-padding-sm);
   }
 }
 
 @media (min-width: 1024px) {
   .container {
+    padding: 0 var(--container-padding-lg);
+  }
+  .container-full {
     padding: 0 var(--container-padding-lg);
   }
 }

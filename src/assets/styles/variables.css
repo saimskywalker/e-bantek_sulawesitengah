@@ -60,6 +60,7 @@
   /* Error Colors */
   --color-error-50: #fef2f2;
   --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
   --color-error-500: #ef4444;
   --color-error-600: #dc2626;
   --color-error-700: #b91c1c;
@@ -219,6 +220,7 @@
   --text-primary: var(--color-neutral-900);
   --text-secondary: var(--color-neutral-600);
   --text-tertiary: var(--color-neutral-500);
+  --text-disabled: var(--color-neutral-400);
   --text-inverse: var(--color-neutral-0);
   --text-link: var(--color-primary-600);
   

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import { USER_ROLES } from '../../context/AuthContext';
 import Button from '../../components/atoms/Button';
 import Typography from '../../components/atoms/Typography';
 import Card from '../../components/molecules/Card';
@@ -8,8 +9,18 @@ import './Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { user, logout, isLoading } = useAuth();
+  const { user, logout, isLoading, userRole, getDashboardPath } = useAuth();
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+
+  // Redirect to role-specific dashboard
+  useEffect(() => {
+    if (userRole && !isLoading) {
+      const rolePath = getDashboardPath();
+      if (rolePath !== '/dashboard') {
+        navigate(rolePath, { replace: true });
+      }
+    }
+  }, [userRole, isLoading, navigate, getDashboardPath]);
 
   const handleLogout = async () => {
     try {

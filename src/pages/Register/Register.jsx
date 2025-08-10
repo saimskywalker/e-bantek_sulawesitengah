@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import { USER_ROLES } from '../../context/AuthContext';
 import Button from '../../components/atoms/Button';
 import FormField from '../../components/molecules/FormField';
 import GoogleSignIn from '../../components/molecules/GoogleSignIn';
@@ -15,7 +16,8 @@ const Register = () => {
     isLoading, 
     error, 
     clearError, 
-    isAuthenticated 
+    isAuthenticated,
+    getDashboardPath
   } = useAuth();
 
   const [formData, setFormData] = useState({
@@ -24,7 +26,10 @@ const Register = () => {
     confirmPassword: '',
     name: '',
     phone: '',
-    profilePicture: null
+    profilePicture: null,
+    role: USER_ROLES.PEMOHON, // Default to Level 1
+    organization: '',
+    position: ''
   });
   
   const [formErrors, setFormErrors] = useState({});
@@ -37,9 +42,10 @@ const Register = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard', { replace: true });
+      const dashboardPath = getDashboardPath?.() || '/dashboard';
+      navigate(dashboardPath, { replace: true });
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, navigate, getDashboardPath]);
 
   // Clear errors when form changes
   useEffect(() => {
@@ -86,6 +92,21 @@ const Register = () => {
       errors.confirmPassword = 'Konfirmasi password wajib diisi';
     } else if (formData.password !== formData.confirmPassword) {
       errors.confirmPassword = 'Password tidak cocok';
+    }
+
+    // Role validation
+    if (!formData.role) {
+      errors.role = 'Role wajib dipilih';
+    }
+
+    // Organization validation (required for non-Pemohon roles)
+    if (formData.role !== USER_ROLES.PEMOHON && !formData.organization.trim()) {
+      errors.organization = 'Nama organisasi/instansi wajib diisi';
+    }
+
+    // Position validation (required for non-Pemohon roles)
+    if (formData.role !== USER_ROLES.PEMOHON && !formData.position.trim()) {
+      errors.position = 'Jabatan wajib diisi';
     }
 
     // Terms validation
@@ -179,7 +200,10 @@ const Register = () => {
         password: formData.password,
         name: formData.name,
         phone: formData.phone || '',
-        profilePicture: formData.profilePicture ? URL.createObjectURL(formData.profilePicture) : ''
+        profilePicture: formData.profilePicture ? URL.createObjectURL(formData.profilePicture) : '',
+        role: formData.role,
+        organization: formData.organization || '',
+        position: formData.position || ''
       };
 
       await register(userData);
@@ -372,6 +396,71 @@ const Register = () => {
                 leftIcon={<i className="fas fa-phone"></i>}
                 helperText="Opsional - untuk notifikasi SMS"
               />
+            </div>
+
+            {/* Role and Organization Section */}
+            <div className="form-section">
+              <Typography variant="body2" className="section-label">
+                Informasi Organisasi
+              </Typography>
+              
+              <div className="form-field">
+                <Typography variant="body2" className="form-field__label" weight="medium">
+                  Jenis Akun <span className="form-field__required">*</span>
+                </Typography>
+                <div className="select-wrapper">
+                  <i className="fas fa-user-tag select-icon"></i>
+                  <select
+                    name="role"
+                    value={formData.role}
+                    onChange={handleInputChange}
+                    className={`form-select ${formErrors.role ? 'form-select--error' : ''}`}
+                    disabled={isFormLoading}
+                    required
+                  >
+                    <option value={USER_ROLES.PEMOHON}>OPD/Instansi Pemohon</option>
+                    <option value={USER_ROLES.PENGELOLA_TEKNIS}>Pengelola Teknis</option>
+                    <option value={USER_ROLES.OPERATOR}>Operator Verifikasi</option>
+                    <option value={USER_ROLES.KEPALA_SEKSI}>Kepala Seksi/Bidang</option>
+                    <option value={USER_ROLES.ADMINISTRATOR}>Administrator Sistem</option>
+                  </select>
+                </div>
+                {formErrors.role && (
+                  <span className="field-error">{formErrors.role}</span>
+                )}
+              </div>
+
+              {formData.role !== USER_ROLES.PEMOHON && (
+                <>
+                  <FormField
+                    label="Nama Organisasi/Instansi"
+                    type="text"
+                    name="organization"
+                    value={formData.organization}
+                    onChange={handleInputChange}
+                    placeholder="Contoh: Dinas PUPR Sulawesi Tengah"
+                    required
+                    error={formErrors.organization}
+                    disabled={isFormLoading}
+                    leftIcon={<i className="fas fa-building"></i>}
+                    helperText="Nama lengkap organisasi atau instansi"
+                  />
+
+                  <FormField
+                    label="Jabatan"
+                    type="text"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                    placeholder="Contoh: Staff Teknis"
+                    required
+                    error={formErrors.position}
+                    disabled={isFormLoading}
+                    leftIcon={<i className="fas fa-id-badge"></i>}
+                    helperText="Jabatan atau posisi di organisasi"
+                  />
+                </>
+              )}
             </div>
 
             {/* Password Section */}

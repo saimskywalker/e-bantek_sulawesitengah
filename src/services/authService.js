@@ -14,7 +14,46 @@ class AuthService {
 
   initializeStorage() {
     if (!localStorage.getItem(USERS_STORAGE_KEY)) {
-      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify([]));
+      // Initialize with some demo users for testing
+      const demoUsers = [
+        {
+          id: 'admin_001',
+          email: 'admin@ebantek.sulteng.go.id',
+          password: 'admin123',
+          name: 'Administrator System',
+          phone: '081234567890',
+          role: 'LEVEL_4',
+          organization: 'Dinas PUPR Sulteng',
+          position: 'Administrator Sistem',
+          isEmailVerified: true,
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 'kepala_001', 
+          email: 'kepala@ebantek.sulteng.go.id',
+          password: 'kepala123',
+          name: 'Kepala Seksi Bangunan',
+          phone: '081234567891',
+          role: 'LEVEL_3',
+          organization: 'Dinas PUPR Sulteng',
+          position: 'Kepala Seksi',
+          isEmailVerified: true,
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 'operator_001',
+          email: 'operator@ebantek.sulteng.go.id', 
+          password: 'operator123',
+          name: 'Operator Verifikasi',
+          phone: '081234567892',
+          role: 'LEVEL_2',
+          organization: 'Dinas PUPR Sulteng',
+          position: 'Operator',
+          isEmailVerified: true,
+          createdAt: new Date().toISOString()
+        }
+      ];
+      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(demoUsers));
     }
   }
 
@@ -73,7 +112,10 @@ class AuthService {
         name: user.name,
         phone: user.phone,
         profilePicture: user.profilePicture,
-        isEmailVerified: user.isEmailVerified
+        isEmailVerified: user.isEmailVerified,
+        role: user.role,
+        organization: user.organization,
+        position: user.position
       },
       token,
       isAuthenticated: true,
@@ -87,7 +129,17 @@ class AuthService {
   async register(userData) {
     await this.delay(); // Simulate API delay
 
-    const { email, password, name, phone, profilePicture } = userData;
+    const { 
+      email, 
+      password, 
+      name, 
+      phone, 
+      profilePicture, 
+      role = 'LEVEL_1', // Default to Level 1 (Pemohon)
+      organization,
+      position 
+    } = userData;
+    
     const users = this.getUsers();
 
     if (users.find(u => u.email === email)) {
@@ -101,6 +153,9 @@ class AuthService {
       name: name || '',
       phone: phone || '',
       profilePicture: profilePicture || '',
+      role,
+      organization: organization || '',
+      position: position || '',
       isEmailVerified: false, // Simulate email verification needed
       createdAt: new Date().toISOString()
     };
@@ -115,7 +170,10 @@ class AuthService {
         name: newUser.name,
         phone: newUser.phone,
         profilePicture: newUser.profilePicture,
-        isEmailVerified: newUser.isEmailVerified
+        isEmailVerified: newUser.isEmailVerified,
+        role: newUser.role,
+        organization: newUser.organization,
+        position: newUser.position
       },
       message: 'Registration successful. Please verify your email.'
     };

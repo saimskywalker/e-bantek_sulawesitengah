@@ -5,15 +5,16 @@ import Landing from '../../pages/Landing';
 import Loading from '../atoms/Loading';
 
 const RootRedirect = () => {
-  const { isAuthenticated, isInitializing } = useAuth();
+  const { isAuthenticated, isInitializing, getDashboardPath } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     // Only redirect if user is fully authenticated (not just initializing)
     if (!isInitializing && isAuthenticated) {
-      navigate('/dashboard', { replace: true });
+      const dashboardPath = getDashboardPath();
+      navigate(dashboardPath, { replace: true });
     }
-  }, [isAuthenticated, isInitializing, navigate]);
+  }, [isAuthenticated, isInitializing, navigate, getDashboardPath]);
 
   // Show loading while auth is initializing
   if (isInitializing) {

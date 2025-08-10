@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AppLayout from '../components/templates/AppLayout';
-import ProtectedRoute from '../components/ProtectedRoute';
+import { ProtectedRoute, RoleBasedRoute } from '../components/ProtectedRoute';
 import RootRedirect from '../components/RootRedirect';
+import { USER_ROLES } from '../context/AuthContext';
 
 // Import page components
 import Landing from '../pages/Landing';
@@ -10,6 +11,7 @@ import Register from '../pages/Register';
 import ForgotPassword from '../pages/ForgotPassword';
 import EmailVerification from '../pages/EmailVerification';
 import Dashboard from '../pages/Dashboard';
+import PemohonDashboard from '../pages/Dashboard/PemohonDashboard';
 import NotFound from '../pages/NotFound';
 
 // Import placeholder components
@@ -50,6 +52,15 @@ const router = createBrowserRouter([
       <ProtectedRoute>
         <Dashboard />
       </ProtectedRoute>
+    ),
+    errorElement: <NotFound />
+  },
+  {
+    path: '/dashboard/pemohon',
+    element: (
+      <RoleBasedRoute allowedRoles={[USER_ROLES.PEMOHON]}>
+        <PemohonDashboard />
+      </RoleBasedRoute>
     ),
     errorElement: <NotFound />
   },

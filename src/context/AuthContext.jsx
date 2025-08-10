@@ -18,6 +18,76 @@ const AUTH_ACTIONS = {
   SET_LOADING: 'SET_LOADING'
 };
 
+// User roles definition
+export const USER_ROLES = {
+  PEMOHON: 'LEVEL_1',        // Level 1 - OPD/Dinas (Requesters)
+  PENGELOLA_TEKNIS: 'LEVEL_1_5', // Level 1.5 - Technical Managers
+  OPERATOR: 'LEVEL_2',       // Level 2 - Operators (Verifiers) 
+  KEPALA_SEKSI: 'LEVEL_3',   // Level 3 - Kepala Seksi/Bidang (Approvers)
+  ADMINISTRATOR: 'LEVEL_4'   // Level 4 - System Administrators
+};
+
+// Permission definitions
+export const PERMISSIONS = {
+  // Level 1 permissions
+  CREATE_REQUEST: 'create_request',
+  VIEW_OWN_REQUESTS: 'view_own_requests',
+  EDIT_OWN_REQUESTS: 'edit_own_requests',
+  
+  // Level 1.5 permissions  
+  VIEW_ASSIGNED_REQUESTS: 'view_assigned_requests',
+  UPDATE_REQUEST_PROGRESS: 'update_request_progress',
+  COMMUNICATE_WITH_REQUESTER: 'communicate_with_requester',
+  
+  // Level 2 permissions
+  VIEW_ALL_REQUESTS: 'view_all_requests',
+  VERIFY_REQUESTS: 'verify_requests',
+  APPROVE_REJECT_REQUESTS: 'approve_reject_requests',
+  
+  // Level 3 permissions
+  ASSIGN_TECHNICAL_MANAGERS: 'assign_technical_managers',
+  FINAL_APPROVAL: 'final_approval',
+  VIEW_REPORTS: 'view_reports',
+  
+  // Level 4 permissions
+  MANAGE_USERS: 'manage_users',
+  SYSTEM_ADMINISTRATION: 'system_administration',
+  VIEW_ANALYTICS: 'view_analytics',
+  MANAGE_ROLES: 'manage_roles'
+};
+
+// Role permissions mapping
+export const ROLE_PERMISSIONS = {
+  [USER_ROLES.PEMOHON]: [
+    PERMISSIONS.CREATE_REQUEST,
+    PERMISSIONS.VIEW_OWN_REQUESTS,
+    PERMISSIONS.EDIT_OWN_REQUESTS
+  ],
+  [USER_ROLES.PENGELOLA_TEKNIS]: [
+    PERMISSIONS.VIEW_ASSIGNED_REQUESTS,
+    PERMISSIONS.UPDATE_REQUEST_PROGRESS,
+    PERMISSIONS.COMMUNICATE_WITH_REQUESTER
+  ],
+  [USER_ROLES.OPERATOR]: [
+    PERMISSIONS.VIEW_ALL_REQUESTS,
+    PERMISSIONS.VERIFY_REQUESTS,
+    PERMISSIONS.APPROVE_REJECT_REQUESTS
+  ],
+  [USER_ROLES.KEPALA_SEKSI]: [
+    PERMISSIONS.VIEW_ALL_REQUESTS,
+    PERMISSIONS.ASSIGN_TECHNICAL_MANAGERS,
+    PERMISSIONS.FINAL_APPROVAL,
+    PERMISSIONS.VIEW_REPORTS
+  ],
+  [USER_ROLES.ADMINISTRATOR]: [
+    PERMISSIONS.MANAGE_USERS,
+    PERMISSIONS.SYSTEM_ADMINISTRATION,
+    PERMISSIONS.VIEW_ANALYTICS,
+    PERMISSIONS.MANAGE_ROLES,
+    PERMISSIONS.VIEW_ALL_REQUESTS
+  ]
+};
+
 // Initial auth state
 const initialState = {
   user: null,
@@ -25,19 +95,25 @@ const initialState = {
   isAuthenticated: false,
   isLoading: false,
   isInitializing: true,
-  error: null
+  error: null,
+  userRole: null,
+  permissions: []
 };
 
 // Auth reducer
 function authReducer(state, action) {
   switch (action.type) {
     case AUTH_ACTIONS.INIT_AUTH:
+      const userRole = action.payload.user?.role || null;
+      const permissions = userRole ? ROLE_PERMISSIONS[userRole] || [] : [];
       return {
         ...state,
         user: action.payload.user,
         token: action.payload.token,
         isAuthenticated: action.payload.isAuthenticated,
-        isInitializing: false
+        isInitializing: false,
+        userRole,
+        permissions
       };
 
     case AUTH_ACTIONS.LOGIN_START:
@@ -49,13 +125,17 @@ function authReducer(state, action) {
       };
 
     case AUTH_ACTIONS.LOGIN_SUCCESS:
+      const loginUserRole = action.payload.user?.role || null;
+      const loginPermissions = loginUserRole ? ROLE_PERMISSIONS[loginUserRole] || [] : [];
       return {
         ...state,
         user: action.payload.user,
         token: action.payload.token,
         isAuthenticated: true,
         isLoading: false,
-        error: null
+        error: null,
+        userRole: loginUserRole,
+        permissions: loginPermissions
       };
 
     case AUTH_ACTIONS.REGISTER_SUCCESS:
@@ -79,7 +159,9 @@ function authReducer(state, action) {
         user: null,
         token: null,
         isAuthenticated: false,
-        error: null
+        error: null,
+        userRole: null,
+        permissions: []
       };
 
     case AUTH_ACTIONS.CLEAR_ERROR:
@@ -251,6 +333,36 @@ export function AuthProvider({ children }) {
     dispatch({ type: AUTH_ACTIONS.CLEAR_ERROR });
   };
 
+  // Permission checking utilities
+  const hasPermission = (permission) => {
+    return state.permissions.includes(permission);
+  };
+
+  const hasRole = (role) => {
+    return state.userRole === role;
+  };
+
+  const hasAnyRole = (roles) => {
+    return roles.includes(state.userRole);
+  };
+
+  const getDashboardPath = () => {
+    switch (state.userRole) {
+      case USER_ROLES.PEMOHON:
+        return '/dashboard/pemohon';
+      case USER_ROLES.PENGELOLA_TEKNIS:
+        return '/dashboard/pengelola-teknis';
+      case USER_ROLES.OPERATOR:
+        return '/dashboard/operator';
+      case USER_ROLES.KEPALA_SEKSI:
+        return '/dashboard/kepala-seksi';
+      case USER_ROLES.ADMINISTRATOR:
+        return '/dashboard/administrator';
+      default:
+        return '/dashboard';
+    }
+  };
+
   // Context value
   const value = {
     // State
@@ -260,6 +372,8 @@ export function AuthProvider({ children }) {
     isLoading: state.isLoading,
     isInitializing: state.isInitializing,
     error: state.error,
+    userRole: state.userRole,
+    permissions: state.permissions,
     
     // Actions
     login,
@@ -269,7 +383,13 @@ export function AuthProvider({ children }) {
     forgotPassword,
     verifyEmail,
     resendVerificationEmail,
-    clearError
+    clearError,
+    
+    // Permission utilities
+    hasPermission,
+    hasRole,
+    hasAnyRole,
+    getDashboardPath
   };
 
   return (
